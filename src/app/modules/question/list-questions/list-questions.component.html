@@ -1,13 +1,14 @@
 <div class="container">
 <div class="row my-3">
   <div class="col">
-    <button class="btn btn-sm btn-outline-primary" (click)="open(demoModal)">Post a question</button>
+    <button class="btn btn-sm btn-outline-primary" (click)="open(questionModal)">Post a question</button>
   </div>
 </div>
 </div>
 
+<!-- pop up for questions -->
 
-<ng-template #demoModal let-modal>
+<ng-template #questionModal let-modal>
   <div class="modal-header">
     <h5 class="modal-title" id="postQuestionModalLabel">Post a Question</h5>
      </div>
@@ -33,7 +34,27 @@
   </div>
 </ng-template>
 
- 
+<!-- pop up for answers -->
+
+<ng-template #answerModal let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title" id="postAnswerModalLabel">Post an Answer</h5>
+     </div>
+  <div class="modal-body">
+    <form [formGroup]="Aform">
+
+      <div class="form-group">
+        <label for="content">Answer:</label>
+        <textarea class="form-control" id="content"  formControlName="content" required></textarea>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Cancel</button>
+    <button type="button" class="btn btn-outline-dark" (click)="saveAnswer()">Save</button>
+  </div>
+</ng-template>
+
  
 <div class="container overflow-auto" style="max-height: 500px;">
   <div class="container"><h4>List of Questions</h4></div>
@@ -43,7 +64,7 @@
         <h5 class="card-title">{{question.title}}</h5>
         <h6 class="card-subtitle mb-2 text-muted">{{question.location}}</h6>
         <p class="card-text">{{question.content}}</p>
-        <a href="#" class="card-link">Post answer</a>
+        <a type="button" (click)="open(answerModal)" class="card-link">Post answer</a>
         <a href="#" class="card-link">Like</a>
       </div>
     </div>

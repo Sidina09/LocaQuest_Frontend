@@ -17,5 +17,8 @@ export class QuestionService {
   postQuestions(data: any): Observable<any> {
     return this.http.post<any>(environment.apiUrl + 'questions', data);
   }
+  postAnswers(data: any): Observable<any> {
+    return this.http.post<any>(environment.apiUrl + 'answers', data);
+  }
   
 }
