@@ -1,27 +1,72 @@
-# LocaQuestFrontend
+## LocaQuest Frontend
+LocaQuest Frontend is an Angular application designed to interact with the LocaQuest Rails backend to manage users, questions, and answers.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.3.
+## Getting Started
+To set up and run the project locally, follow these steps:
 
-## Development server
+Clone the Repository:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+bash
+Copy code
+git clone <repository-url>
+Install Dependencies:
 
-## Code scaffolding
+bash
+Copy code
+npm install
+Configure Environment:
+Update the environment.ts file in the src/environments directory with the appropriate API URL:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+typescript
+Copy code
+export const environment = {
+  production: false,
+  apiUrl : 'http://127.0.0.1:3000/'
+};
+Run the Development Server:
 
-## Build
+bash
+Copy code
+npm start
+Now you can access the Angular application locally at http://localhost:4200/.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Components and Services
+UserService
+Description: Handles HTTP requests related to user management.
+Methods:
+getUsers(): Retrieves all users from the backend.
+postUsers(data): Posts a new user to the backend.
+QuestionService
+Description: Handles HTTP requests related to questions and answers.
+## Methods:
+getQuestions(): Retrieves all questions from the backend.
+postQuestions(data): Posts a new question to the backend.
+postAnswers(data): Posts a new answer to the backend.
+SigninComponent
+Description: Component for user sign-in functionality.
+## Features:
+Validates user credentials.
+Redirects to the list of questions upon successful sign-in.
+SignupComponent
+Description: Component for user sign-up functionality.
+Features:
+Allows users to create a new account.
+Redirects to the sign-in page upon successful sign-up.
+ListQuestionsComponent
+Description: Component to display a list of questions and post new questions and answers.
+Features:
+Retrieves and displays existing questions.
+Allows users to post new questions and answers.
+## Dependencies
+Angular: ^14.3.0
+Bootstrap: ^5.3.2
+ng-bootstrap: ^13.0.0
+PrimeNG: ^14.0.0
+Development Server Commands
+npm start: Starts the development server.
+npm run build: Builds the project for production.
+npm run watch: Builds the project and watches for changes in development mode.
+npm test: Runs unit tests.
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## License
+This project is licensed under the MIT License.
